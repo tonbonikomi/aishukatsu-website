@@ -16,6 +16,7 @@ export default function Hero() {
           学生と企業の、
           <br />
           架け橋に。
+
         </h1>
         <p className="hero__sub">
           京大・阪大・関関同立を中心とした
