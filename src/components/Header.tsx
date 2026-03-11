@@ -12,15 +12,19 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/'
   return (
     <header className="site-header">
       <div className="container site-header__inner">
         <a href="#top" className="site-header__logo">
-          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-            <rect width="28" height="28" rx="7" fill="#2563eb" />
-            <path d="M7 14l5 5 9-10" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+         <img
+            src={`${base}logo.png`}
+             alt="AI就活"
+               style={{height: 28, width: 'auto' }}
+
+          />
           <span>株式会社AI就活</span>
         </a>
 
@@ -75,10 +79,11 @@ export default function Header() {
           position: fixed;
           top: 0; left: 0; right: 0;
           z-index: 100;
-          background: rgba(255, 255, 255, 0.96);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-bottom: 1px solid #e5e7eb;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
           height: var(--header-height);
         }
         .site-header__inner {
@@ -109,12 +114,12 @@ export default function Header() {
         .site-header__link {
           font-size: 0.8125rem;
           font-weight: 500;
-          color: #374151;
+          color: var(--color-text-muted);
           transition: color 0.15s;
           white-space: nowrap;
         }
         .site-header__link:hover {
-          color: #2563eb;
+          color: var(--color-text);
         }
         .site-header__cta {
           padding: 7px 16px;
@@ -149,8 +154,8 @@ export default function Header() {
         .h-line--open-2 { opacity: 0; transform: scaleX(0); }
         .h-line--open-3 { transform: translateY(-7px) rotate(-45deg); }
         .site-header__mobile {
-          background: #fff;
-          border-top: 1px solid #e5e7eb;
+          background: rgba(255, 255, 255, 0.98);
+          border-top: 1px solid rgba(0, 0, 0, 0.06);
           padding: 12px var(--section-px) 20px;
           display: flex;
           flex-direction: column;
@@ -158,13 +163,13 @@ export default function Header() {
         .site-header__mobile-link {
           font-size: 0.9375rem;
           font-weight: 500;
-          color: #374151;
+          color: var(--color-text-muted);
           padding: 12px 0;
-          border-bottom: 1px solid #f3f4f6;
+          border-bottom: 1px solid var(--color-border);
           transition: color 0.15s;
         }
         .site-header__mobile-link:hover {
-          color: #2563eb;
+          color: var(--color-text);
         }
         /* ナビが多いので 900px でハンバーガーに切り替え */
         @media (max-width: 900px) {
